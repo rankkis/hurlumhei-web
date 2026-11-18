@@ -140,7 +140,7 @@ const fi: Content = {
       shotAlt: 'Milloin…-palvelun etusivu: sähkön ja rahan milloin-kysymykset vastauksineen',
       started: '01/2026',
       tags: ['Pörssisähkö', 'Avoin API', ...STACK],
-      desc: 'Vastaukset arjen milloin-kysymyksiin: pörssisähkön halvimmat tunnit, Kelan ja veronpalautusten maksupäivät sekä avoin API kehittäjille.',
+      desc: 'Milloin kannattaa ladata sähköauto? Milloin opintotuki maksetaan? Milloin sähkö on halpaa… ja paljon muuta sekä avoin API kehittäjille.',
     },
   ],
   servicesTitle: 'Mitä teen',
@@ -148,7 +148,7 @@ const fi: Content = {
     {
       n: '/01',
       title: 'Web-sovellukset',
-      desc: 'Full stack -kehitys käyttöliittymästä taustajärjestelmiin ja tuotantoon.',
+      desc: 'Fullstack-kehitys taustajärjestelmistä käyttöliittymään ja takaisin.',
     },
     {
       n: '/02',
@@ -272,7 +272,7 @@ const en: Content = {
       shotAlt: 'The Milloin… front page: electricity and money questions with live answers',
       started: '01/2026',
       tags: ['Spot electricity', 'Public API', ...STACK],
-      desc: 'Answers everyday "when" questions: the cheapest spot-electricity hours, Kela and tax refund payment dates, and a public API for developers.',
+      desc: 'When should you charge your EV? When is the student allowance paid? When is electricity cheap… and much more, plus a public API for developers.',
     },
   ],
   servicesTitle: 'What I do',
@@ -280,7 +280,7 @@ const en: Content = {
     {
       n: '/01',
       title: 'Web applications',
-      desc: 'Full stack development from the user interface to the backend and into production.',
+      desc: 'Full stack development from the backend to the user interface and back.',
     },
     {
       n: '/02',
