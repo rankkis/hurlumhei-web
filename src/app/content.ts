@@ -148,7 +148,7 @@ const fi: Content = {
     {
       n: '/01',
       title: 'Web-sovellukset',
-      desc: 'Full stack -kehitys käyttöliittymästä taustajärjestelmiin ja tuotantoon.',
+      desc: 'Fullstack-kehitys taustajärjestelmistä käyttöliittymään ja takaisin.',
     },
     {
       n: '/02',
@@ -280,7 +280,7 @@ const en: Content = {
     {
       n: '/01',
       title: 'Web applications',
-      desc: 'Full stack development from the user interface to the backend and into production.',
+      desc: 'Full stack development from the backend to the user interface and back.',
     },
     {
       n: '/02',
