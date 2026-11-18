@@ -22,7 +22,7 @@ npm run build    # static site in dist/hurlumhei-web/browser
 
 ## Deployment
 
-Every push to `main` builds the site and deploys it to GitHub Pages with [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml). The custom domain comes from `public/CNAME`.
+Every push to `master` builds the site and deploys it to GitHub Pages with [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml). The custom domain comes from `public/CNAME`.
 
 One-time setup:
 
