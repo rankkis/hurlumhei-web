@@ -251,7 +251,9 @@
   background: #0e1310;
 }
 .section > .wrap {
-  padding-block: clamp(64px, 9vw, 96px);
+  /* The heading's line box adds ~10px above its letters; trim it so the visible
+     gap above a section's content matches the gap below it. */
+  padding-block: calc(clamp(64px, 9vw, 96px) - 10px) clamp(64px, 9vw, 96px);
 }
 .section__head {
   display: flex;
@@ -607,7 +609,7 @@
   flex-wrap: wrap;
   gap: 48px;
   align-items: flex-start;
-  padding-top: clamp(72px, 10vw, 104px);
+  padding-top: clamp(64px, 9vw, 96px);
 }
 .contact__main {
   flex: 999 1 520px;
