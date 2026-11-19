@@ -45,7 +45,8 @@ export interface Content {
   skip: string;
   nav: { services: string; projects: string; people: string; contact: string };
   heroKicker: string;
-  heroTitleA: string;
+  /** Headline lines before the italic tail, each on its own line. */
+  heroTitleA: string[];
   heroTitleB: string;
   heroLead: string;
   ctaContact: string;
@@ -122,7 +123,7 @@ const fi: Content = {
     contact: 'Ota yhteyttä',
   },
   heroKicker: 'Hurlumhei Oy · ohjelmistokonsultointi',
-  heroTitleA: 'Modernia ohjelmistokehitystä',
+  heroTitleA: ['Modernia', 'ohjelmistokehitystä'],
   heroTitleB: '– jotta sinun ei tarvitse.',
   heroLead:
     'Hurlumhei Oy on suomalainen ohjelmistokonsultointiyritys. Rakennamme web-sovelluksia, autamme arkkitehtuurissa ja tuomme tekoälyagentit osaksi ohjelmistokehitystä.',
@@ -278,7 +279,7 @@ const en: Content = {
     contact: 'Get in touch',
   },
   heroKicker: 'Hurlumhei Oy · software consulting',
-  heroTitleA: 'Modern software development',
+  heroTitleA: ['Modern software', 'development'],
   heroTitleB: "– so you don't have to.",
   heroLead:
     'Hurlumhei Oy is a Finnish software consultancy. We build web applications, help with architecture and bring AI agents into software development.',
