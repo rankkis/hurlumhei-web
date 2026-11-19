@@ -1,5 +1,10 @@
 export type Lang = 'fi' | 'en';
 
+export interface Fact {
+  label: string;
+  value: string;
+}
+
 export interface Project {
   name: string;
   domain: string;
@@ -37,34 +42,53 @@ export interface Content {
   path: string;
   meta: { title: string; description: string };
   langLabel: string;
-  nav: { projects: string; experience: string; skills: string; contact: string };
-  status: string;
-  eyebrow: string;
+  skip: string;
+  nav: { services: string; projects: string; people: string; contact: string };
+  heroKicker: string;
   heroTitleA: string;
   heroTitleB: string;
   heroLead: string;
-  photoAlt: string;
-  photoCaption: string;
-  ctaProjects: string;
   ctaContact: string;
-  projectsTitle: string;
-  githubLabel: string;
-  startedLabel: string;
-  visit: string;
-  projects: Project[];
+  ctaServices: string;
+  factsLabel: string;
+  /** Label of the monthly status fact; the current MM/YYYY is appended in parentheses. */
+  statusLabel: string;
+  statusValue: string;
+  /** Facts shown before and after the status fact. */
+  factsBefore: Fact[];
+  factsAfter: Fact[];
   servicesTitle: string;
+  servicesLead: string;
   services: Service[];
+  projectsTitle: string;
+  startedLabel: string;
+  projects: Project[];
+  peopleTitle: string;
+  personRole: string;
+  personLead: string;
+  personArea: string;
+  personLangs: string;
+  photoAlt: string;
+  githubLabel: string;
+  showCv: string;
+  hideCv: string;
   experienceTitle: string;
   jobs: Job[];
   skillsTitle: string;
   skillGroups: SkillGroup[];
   contactTitle: string;
   contactLead: string;
+  companyLabel: string;
   businessIdLabel: string;
+  contactPersonLabel: string;
+  areaLabel: string;
+  areaValue: string;
   country: string;
   footerNote: string;
 }
 
+export const COMPANY = 'Hurlumhei Oy';
+export const PERSON = 'Jarkko Peltola';
 export const EMAIL = 'jarkko.peltola@hurlumhei.xyz';
 export const PHONE = '+358 44 223 1235';
 export const PHONE_HREF = 'tel:+358442231235';
@@ -85,31 +109,54 @@ const fi: Content = {
   lang: 'fi',
   path: '/',
   meta: {
-    title: 'Jarkko Peltola · Hurlumhei Oy – ohjelmistokonsultti',
+    title: 'Hurlumhei Oy – ohjelmistokonsultointi',
     description:
-      'Teen modernia ohjelmistokehitystä – jotta sinun ei tarvitse. Lähes 20 vuotta finanssialan liiketoimintakriittisten järjestelmien kehitystä.',
+      'Modernia ohjelmistokehitystä – jotta sinun ei tarvitse. Hurlumhei Oy rakentaa web-sovelluksia, auttaa arkkitehtuurissa ja tuo tekoälyagentit osaksi ohjelmistokehitystä.',
   },
   langLabel: 'Kieli',
+  skip: 'Siirry sisältöön',
   nav: {
-    projects: 'Projektit',
-    experience: 'Kokemus',
-    skills: 'Osaaminen',
-    contact: 'Yhteystiedot',
+    services: 'Palvelut',
+    projects: 'Sivuprojektit',
+    people: 'Ihmiset',
+    contact: 'Ota yhteyttä',
   },
-  status: 'Asiakasprojekti käynnissä',
-  eyebrow: 'Hurlumhei Oy · ohjelmistokonsultointi',
-  heroTitleA: 'Teen modernia ohjelmistokehitystä',
+  heroKicker: 'Hurlumhei Oy · ohjelmistokonsultointi',
+  heroTitleA: 'Modernia ohjelmistokehitystä',
   heroTitleB: '– jotta sinun ei tarvitse.',
   heroLead:
-    'Olen Jarkko Peltola, ohjelmistokonsultti. Takana lähes 20 vuotta finanssialan liiketoimintakriittisten järjestelmien kehitystä pääkaupunkiseudulla. Sivussa rakennan omia projekteja, koska koodaaminen on edelleen hauskaa.',
-  photoAlt: 'Jarkko Peltola',
-  photoCaption: 'Pääkaupunkiseutu · Lahti',
-  ctaProjects: 'Katso projektit',
+    'Hurlumhei Oy on suomalainen ohjelmistokonsultointiyritys. Rakennamme web-sovelluksia, autamme arkkitehtuurissa ja tuomme tekoälyagentit osaksi ohjelmistokehitystä.',
   ctaContact: 'Ota yhteyttä',
-  projectsTitle: 'Omat projektit',
-  githubLabel: 'GitHub-profiili (rankkis)',
+  ctaServices: 'Mitä teemme',
+  factsLabel: 'Yritys lyhyesti',
+  statusLabel: 'Tilanne',
+  statusValue: '100% varattu',
+  factsBefore: [{ label: 'Perustettu', value: '07/2022' }],
+  factsAfter: [
+    { label: 'Sivuprojektit', value: '3 tuotannossa' },
+    { label: 'Toiminta-alue', value: 'Etelä-Suomi' },
+  ],
+  servicesTitle: 'Palvelut',
+  servicesLead: 'Asiakkaana yleensä tiimi, joka tarvitsee kokeneen tekijän nopeasti mukaan.',
+  services: [
+    {
+      n: '01',
+      title: 'Web-sovellukset',
+      desc: 'Fullstack-kehitys taustajärjestelmistä käyttöliittymään ja takaisin.',
+    },
+    {
+      n: '02',
+      title: 'Konsultointi ja arkkitehtuuri',
+      desc: 'Teknologiavalinnat, arkkitehtuuri ja koodikatselmoinnit tiimin tueksi.',
+    },
+    {
+      n: '03',
+      title: 'Agenttinen kehitys',
+      desc: 'Tekoälyagentit osaksi tiimisi ohjelmistokehitystä: puoliautomaattiset prosessit, joissa AI tekee työtä ja ihminen pitää ohjat.',
+    },
+  ],
+  projectsTitle: 'Sivuprojektit',
   startedLabel: 'Aloitettu',
-  visit: 'Avaa',
   projects: [
     {
       name: 'Kaveritutka',
@@ -143,24 +190,16 @@ const fi: Content = {
       desc: 'Milloin kannattaa ladata sähköauto? Milloin opintotuki maksetaan? Milloin sähkö on halpaa… ja paljon muuta sekä avoin API kehittäjille.',
     },
   ],
-  servicesTitle: 'Mitä teen',
-  services: [
-    {
-      n: '/01',
-      title: 'Web-sovellukset',
-      desc: 'Fullstack-kehitys taustajärjestelmistä käyttöliittymään ja takaisin.',
-    },
-    {
-      n: '/02',
-      title: 'Konsultointi ja arkkitehtuuri',
-      desc: 'Teknologiavalinnat, arkkitehtuuri ja koodikatselmoinnit tiimin tueksi.',
-    },
-    {
-      n: '/03',
-      title: 'Agenttinen kehitys',
-      desc: 'Tuon tekoälyagentit osaksi tiimisi ohjelmistokehitystä: puoliautomaattiset prosessit, joissa AI tekee työtä ja ihminen pitää ohjat.',
-    },
-  ],
+  peopleTitle: 'Ihmiset',
+  personRole: 'Perustaja · ohjelmistokonsultti',
+  personLead:
+    'Takana lähes 20 vuotta finanssialan liiketoimintakriittisten järjestelmien kehitystä pääkaupunkiseudulla. Sivussa rakennan omia projekteja, koska koodaaminen on edelleen hauskaa.',
+  personArea: 'Pääkaupunkiseutu · Lahti',
+  personLangs: 'Suomi, englanti',
+  photoAlt: 'Jarkko Peltola',
+  githubLabel: 'GitHub-profiili (rankkis)',
+  showCv: 'Näytä CV',
+  hideCv: 'Piilota CV',
   experienceTitle: 'Kokemus',
   jobs: [
     {
@@ -210,11 +249,14 @@ const fi: Content = {
     { name: 'Frontend', items: ['Angular', 'RxJS', 'NgRx', 'Cypress'] },
     { name: 'Backend', items: ['Java', 'Reactor', 'NestJS', 'C#', 'Playwright'] },
     { name: 'Pilvi ja DevOps', items: ['Azure', 'Vercel', 'Supabase', 'Jenkins'] },
-    { name: 'Kielet', items: ['Suomi (äidinkieli)', 'Englanti (sujuva)'] },
   ],
   contactTitle: 'Tehdäänkö jotain yhdessä?',
   contactLead: 'Kerro projektistasi, niin vastaan yleensä saman päivän aikana.',
+  companyLabel: 'Yritys',
   businessIdLabel: 'Y-tunnus',
+  contactPersonLabel: 'Yhteyshenkilö',
+  areaLabel: 'Toiminta-alue',
+  areaValue: 'Etelä-Suomi',
   country: 'Suomi',
   footerNote: 'Tehty Suomessa',
 };
@@ -223,26 +265,54 @@ const en: Content = {
   lang: 'en',
   path: '/en',
   meta: {
-    title: 'Jarkko Peltola · Hurlumhei Oy – software consultant',
+    title: 'Hurlumhei Oy – software consulting',
     description:
-      "I do modern software development – so you don't have to. Almost 20 years of building business-critical systems for the financial sector.",
+      "Modern software development – so you don't have to. Hurlumhei Oy builds web applications, helps with architecture and brings AI agents into software development.",
   },
   langLabel: 'Language',
-  nav: { projects: 'Projects', experience: 'Experience', skills: 'Skills', contact: 'Contact' },
-  status: 'Currently on a client project',
-  eyebrow: 'Hurlumhei Oy · software consulting',
-  heroTitleA: 'I do modern software development',
+  skip: 'Skip to content',
+  nav: {
+    services: 'Services',
+    projects: 'Side projects',
+    people: 'People',
+    contact: 'Get in touch',
+  },
+  heroKicker: 'Hurlumhei Oy · software consulting',
+  heroTitleA: 'Modern software development',
   heroTitleB: "– so you don't have to.",
   heroLead:
-    "I'm Jarkko Peltola, a software consultant. Almost 20 years of building business-critical systems for the financial sector in the Helsinki region. On the side, I build my own projects, because coding is still fun.",
-  photoAlt: 'Jarkko Peltola',
-  photoCaption: 'Helsinki region · Lahti',
-  ctaProjects: 'See my projects',
+    'Hurlumhei Oy is a Finnish software consultancy. We build web applications, help with architecture and bring AI agents into software development.',
   ctaContact: 'Get in touch',
-  projectsTitle: 'My projects',
-  githubLabel: 'GitHub profile (rankkis)',
+  ctaServices: 'What we do',
+  factsLabel: 'Company at a glance',
+  statusLabel: 'Status',
+  statusValue: '100% booked',
+  factsBefore: [{ label: 'Founded', value: '07/2022' }],
+  factsAfter: [
+    { label: 'Side projects', value: '3 live' },
+    { label: 'Area', value: 'Southern Finland' },
+  ],
+  servicesTitle: 'Services',
+  servicesLead: 'Usually for a team that needs an experienced developer on board quickly.',
+  services: [
+    {
+      n: '01',
+      title: 'Web applications',
+      desc: 'Full stack development from the backend to the user interface and back.',
+    },
+    {
+      n: '02',
+      title: 'Consulting and architecture',
+      desc: 'Technology choices, architecture and code reviews to support your team.',
+    },
+    {
+      n: '03',
+      title: 'Agentic development',
+      desc: 'AI agents as part of your software development: semi-automatic processes where AI does the work and people stay in control.',
+    },
+  ],
+  projectsTitle: 'Side projects',
   startedLabel: 'Started',
-  visit: 'Visit',
   projects: [
     {
       name: 'Kaveritutka',
@@ -275,24 +345,16 @@ const en: Content = {
       desc: 'When should you charge your EV? When is the student allowance paid? When is electricity cheap… and much more, plus a public API for developers.',
     },
   ],
-  servicesTitle: 'What I do',
-  services: [
-    {
-      n: '/01',
-      title: 'Web applications',
-      desc: 'Full stack development from the backend to the user interface and back.',
-    },
-    {
-      n: '/02',
-      title: 'Consulting and architecture',
-      desc: 'Technology choices, architecture and code reviews to support your team.',
-    },
-    {
-      n: '/03',
-      title: 'Agentic development',
-      desc: 'I bring AI agents into your software development: semi-automatic processes where AI does the work and people stay in control.',
-    },
-  ],
+  peopleTitle: 'People',
+  personRole: 'Founder · software consultant',
+  personLead:
+    'Almost 20 years of building business-critical systems for the financial sector in the Helsinki region. On the side, I build my own projects, because coding is still fun.',
+  personArea: 'Helsinki region · Lahti',
+  personLangs: 'Finnish, English',
+  photoAlt: 'Jarkko Peltola',
+  githubLabel: 'GitHub profile (rankkis)',
+  showCv: 'Show CV',
+  hideCv: 'Hide CV',
   experienceTitle: 'Experience',
   jobs: [
     {
@@ -342,11 +404,14 @@ const en: Content = {
     { name: 'Frontend', items: ['Angular', 'RxJS', 'NgRx', 'Cypress'] },
     { name: 'Backend', items: ['Java', 'Reactor', 'NestJS', 'C#', 'Playwright'] },
     { name: 'Cloud and DevOps', items: ['Azure', 'Vercel', 'Supabase', 'Jenkins'] },
-    { name: 'Languages', items: ['Finnish (native)', 'English (fluent)'] },
   ],
   contactTitle: "Let's build something together.",
-  contactLead: 'Tell me about your project. I usually reply the same day.',
+  contactLead: 'Tell us about your project. We usually reply the same day.',
+  companyLabel: 'Company',
   businessIdLabel: 'Business ID',
+  contactPersonLabel: 'Contact person',
+  areaLabel: 'Area',
+  areaValue: 'Southern Finland',
   country: 'Finland',
   footerNote: 'Made in Finland',
 };
