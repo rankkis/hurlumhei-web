@@ -1,8 +1,33 @@
 import { DOCUMENT } from '@angular/common';
-import { ChangeDetectionStrategy, Component, computed, effect, inject, input } from '@angular/core';
+import {
+  afterNextRender,
+  ChangeDetectionStrategy,
+  Component,
+  computed,
+  effect,
+  inject,
+  input,
+  signal,
+} from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
 import { RouterLink } from '@angular/router';
-import { BUSINESS_ID, CONTENT, EMAIL, GITHUB, Lang, PHONE, PHONE_HREF, SITE_URL } from '../content';
+import {
+  BUSINESS_ID,
+  COMPANY,
+  CONTENT,
+  EMAIL,
+  GITHUB,
+  Lang,
+  PERSON,
+  PHONE,
+  PHONE_HREF,
+  SITE_URL,
+} from '../content';
+
+/** Current month as MM/YYYY. */
+function monthStamp(date = new Date()): string {
+  return String(date.getMonth() + 1).padStart(2, '0') + '/' + date.getFullYear();
+}
 
 @Component({
   selector: 'app-home',
@@ -24,7 +49,12 @@ export class Home {
   protected readonly phoneHref = PHONE_HREF;
   protected readonly github = GITHUB;
   protected readonly businessId = BUSINESS_ID;
-  protected readonly year = new Date().getFullYear();
+  protected readonly company = COMPANY;
+  protected readonly person = PERSON;
+  /** The page is prerendered at build time, so the month and year are refreshed in the browser. */
+  protected readonly month = signal(monthStamp());
+  protected readonly year = signal(new Date().getFullYear());
+  protected readonly cvOpen = signal(false);
 
   private readonly document = inject(DOCUMENT);
   private readonly title = inject(Title);
@@ -32,6 +62,14 @@ export class Home {
 
   constructor() {
     effect(() => this.applyHead());
+    afterNextRender(() => {
+      this.month.set(monthStamp());
+      this.year.set(new Date().getFullYear());
+    });
+  }
+
+  protected toggleCv(): void {
+    this.cvOpen.update((open) => !open);
   }
 
   private applyHead(): void {

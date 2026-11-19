@@ -1,6 +1,6 @@
 # hurlumhei-web
 
-The website of Hurlumhei Oy at [hurlumhei.xyz](https://hurlumhei.xyz): Jarkko Peltola's CV and projects, in Finnish and English.
+The website of Hurlumhei Oy at [hurlumhei.xyz](https://hurlumhei.xyz): the company's services, side projects and Jarkko Peltola's CV, in Finnish and English.
 
 ## Stack
 
